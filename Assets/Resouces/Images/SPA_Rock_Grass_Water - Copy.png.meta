@@ -3,7 +3,7 @@ guid: 50e390264e80bcf4a80f91694e6a79ff
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
-  serializedVersion: 12
+  serializedVersion: 13
   mipmaps:
     mipMapMode: 0
     enableMipMap: 0
@@ -140,7 +140,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 190
+        y: 152
         width: 32
         height: 32
       alignment: 0
@@ -161,7 +161,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 38
-        y: 190
+        y: 152
         width: 32
         height: 32
       alignment: 0
@@ -182,7 +182,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 76
-        y: 190
+        y: 152
         width: 32
         height: 32
       alignment: 0
@@ -203,7 +203,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 114
-        y: 190
+        y: 152
         width: 32
         height: 32
       alignment: 0
@@ -224,7 +224,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 152
-        y: 190
+        y: 152
         width: 32
         height: 32
       alignment: 0
@@ -244,7 +244,7 @@ TextureImporter:
       name: SPA_Rock_Grass_Water - Copy_5
       rect:
         serializedVersion: 2
-        x: 0
+        x: 190
         y: 152
         width: 32
         height: 32
@@ -265,8 +265,8 @@ TextureImporter:
       name: SPA_Rock_Grass_Water - Copy_6
       rect:
         serializedVersion: 2
-        x: 38
-        y: 152
+        x: 0
+        y: 114
         width: 32
         height: 32
       alignment: 0
@@ -286,8 +286,8 @@ TextureImporter:
       name: SPA_Rock_Grass_Water - Copy_7
       rect:
         serializedVersion: 2
-        x: 76
-        y: 152
+        x: 38
+        y: 114
         width: 32
         height: 32
       alignment: 0
@@ -307,8 +307,8 @@ TextureImporter:
       name: SPA_Rock_Grass_Water - Copy_8
       rect:
         serializedVersion: 2
-        x: 114
-        y: 152
+        x: 76
+        y: 114
         width: 32
         height: 32
       alignment: 0
@@ -328,8 +328,8 @@ TextureImporter:
       name: SPA_Rock_Grass_Water - Copy_9
       rect:
         serializedVersion: 2
-        x: 152
-        y: 152
+        x: 114
+        y: 114
         width: 32
         height: 32
       alignment: 0
@@ -349,7 +349,7 @@ TextureImporter:
       name: SPA_Rock_Grass_Water - Copy_10
       rect:
         serializedVersion: 2
-        x: 0
+        x: 152
         y: 114
         width: 32
         height: 32
@@ -370,7 +370,7 @@ TextureImporter:
       name: SPA_Rock_Grass_Water - Copy_11
       rect:
         serializedVersion: 2
-        x: 38
+        x: 190
         y: 114
         width: 32
         height: 32
@@ -391,8 +391,8 @@ TextureImporter:
       name: SPA_Rock_Grass_Water - Copy_12
       rect:
         serializedVersion: 2
-        x: 76
-        y: 114
+        x: 0
+        y: 76
         width: 32
         height: 32
       alignment: 0
@@ -412,8 +412,8 @@ TextureImporter:
       name: SPA_Rock_Grass_Water - Copy_13
       rect:
         serializedVersion: 2
-        x: 114
-        y: 114
+        x: 38
+        y: 76
         width: 32
         height: 32
       alignment: 0
@@ -433,8 +433,8 @@ TextureImporter:
       name: SPA_Rock_Grass_Water - Copy_14
       rect:
         serializedVersion: 2
-        x: 152
-        y: 114
+        x: 76
+        y: 76
         width: 32
         height: 32
       alignment: 0
@@ -454,7 +454,7 @@ TextureImporter:
       name: SPA_Rock_Grass_Water - Copy_15
       rect:
         serializedVersion: 2
-        x: 0
+        x: 114
         y: 76
         width: 32
         height: 32
@@ -475,7 +475,7 @@ TextureImporter:
       name: SPA_Rock_Grass_Water - Copy_16
       rect:
         serializedVersion: 2
-        x: 38
+        x: 152
         y: 76
         width: 32
         height: 32
@@ -496,7 +496,7 @@ TextureImporter:
       name: SPA_Rock_Grass_Water - Copy_17
       rect:
         serializedVersion: 2
-        x: 76
+        x: 190
         y: 76
         width: 32
         height: 32
@@ -517,8 +517,8 @@ TextureImporter:
       name: SPA_Rock_Grass_Water - Copy_18
       rect:
         serializedVersion: 2
-        x: 114
-        y: 76
+        x: 0
+        y: 38
         width: 32
         height: 32
       alignment: 0
@@ -538,8 +538,8 @@ TextureImporter:
       name: SPA_Rock_Grass_Water - Copy_19
       rect:
         serializedVersion: 2
-        x: 152
-        y: 76
+        x: 38
+        y: 38
         width: 32
         height: 32
       alignment: 0
@@ -559,7 +559,7 @@ TextureImporter:
       name: SPA_Rock_Grass_Water - Copy_20
       rect:
         serializedVersion: 2
-        x: 0
+        x: 76
         y: 38
         width: 32
         height: 32
@@ -580,7 +580,7 @@ TextureImporter:
       name: SPA_Rock_Grass_Water - Copy_21
       rect:
         serializedVersion: 2
-        x: 38
+        x: 114
         y: 38
         width: 32
         height: 32
@@ -601,7 +601,7 @@ TextureImporter:
       name: SPA_Rock_Grass_Water - Copy_22
       rect:
         serializedVersion: 2
-        x: 76
+        x: 152
         y: 38
         width: 32
         height: 32
@@ -622,7 +622,7 @@ TextureImporter:
       name: SPA_Rock_Grass_Water - Copy_23
       rect:
         serializedVersion: 2
-        x: 114
+        x: 190
         y: 38
         width: 32
         height: 32
@@ -643,8 +643,8 @@ TextureImporter:
       name: SPA_Rock_Grass_Water - Copy_24
       rect:
         serializedVersion: 2
-        x: 152
-        y: 38
+        x: 0
+        y: 0
         width: 32
         height: 32
       alignment: 0
@@ -664,7 +664,7 @@ TextureImporter:
       name: SPA_Rock_Grass_Water - Copy_25
       rect:
         serializedVersion: 2
-        x: 0
+        x: 38
         y: 0
         width: 32
         height: 32
@@ -685,7 +685,7 @@ TextureImporter:
       name: SPA_Rock_Grass_Water - Copy_26
       rect:
         serializedVersion: 2
-        x: 38
+        x: 76
         y: 0
         width: 32
         height: 32
@@ -706,7 +706,7 @@ TextureImporter:
       name: SPA_Rock_Grass_Water - Copy_27
       rect:
         serializedVersion: 2
-        x: 76
+        x: 114
         y: 0
         width: 32
         height: 32
@@ -727,7 +727,7 @@ TextureImporter:
       name: SPA_Rock_Grass_Water - Copy_28
       rect:
         serializedVersion: 2
-        x: 114
+        x: 152
         y: 0
         width: 32
         height: 32
@@ -748,7 +748,7 @@ TextureImporter:
       name: SPA_Rock_Grass_Water - Copy_29
       rect:
         serializedVersion: 2
-        x: 152
+        x: 190
         y: 0
         width: 32
         height: 32
