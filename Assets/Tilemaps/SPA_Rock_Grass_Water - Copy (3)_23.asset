@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 13312, guid: 0000000000000000e000000000000000, type: 0}
   m_Name: SPA_Rock_Grass_Water - Copy (3)_23
   m_EditorClassIdentifier: 
-  m_Sprite: {fileID: 1536234672, guid: 649132704077cab45b550bdc219528d0, type: 3}
+  m_Sprite: {fileID: -1316227176, guid: 649132704077cab45b550bdc219528d0, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_Transform:
     e00: 1
