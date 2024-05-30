@@ -49,11 +49,19 @@ public class PlayerControl : MonoBehaviour
 
         if (horizontalInput > 0)
         {
+            //qua phải 
             _isMovingRight = true;
+            _animator.SetBool("isRunning", true);
         }
         else if (horizontalInput < 0)
         {
+            //qua trái
             _isMovingRight = false;
+        }
+        else
+        {
+            //đứng yên
+            
         }
         transform.localScale = _isMovingRight ? new Vector3(1f, 1f, 1f) : new Vector3(-1f, 1f, 1f);
     }
