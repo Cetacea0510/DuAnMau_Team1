@@ -36,6 +36,12 @@ public class PlayerControl : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+        Move();  
+    }
+    private void Move()
+    {
+        //left, right, a,d 
+        var horizontalInput = Input.GetAxis("Horizontal");
+        transform.localPosition += new Vector3(horizontalInput, 0, 0);
     }
 }
