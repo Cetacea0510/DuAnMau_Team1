@@ -57,11 +57,12 @@ public class PlayerControl : MonoBehaviour
         {
             //qua trái
             _isMovingRight = false;
+            _animator.SetBool("isRunning", true);
         }
         else
         {
             //đứng yên
-            
+            _animator.SetBool("isRunning", false);
         }
         transform.localScale = _isMovingRight ? new Vector3(1f, 1f, 1f) : new Vector3(-1f, 1f, 1f);
     }
