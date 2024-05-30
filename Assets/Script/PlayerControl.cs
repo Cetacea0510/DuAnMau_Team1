@@ -13,6 +13,8 @@ public class PlayerControl : MonoBehaviour
                                   // dùng để khởi tạo giá trị
 
     // biến kiểm tra hướng di chuyển
+    // Biến kiểm tra xem nhân vật có đang leo thang hay không
+    private bool isClimbing;
     [SerializeField]
     private bool _isMovingRight = true;
 
@@ -40,6 +42,7 @@ public class PlayerControl : MonoBehaviour
     {
         Move();  
         Jump();
+        Climb();
     }
     private void Move()
     {
@@ -78,6 +81,34 @@ public class PlayerControl : MonoBehaviour
         {
             _rigidbody2D.AddForce(Vector2.up * _jumpForce, ForceMode2D.Impulse);
         }
+    }
+    private void OnTriggerStay2D(Collider2D collision)
+    {
+        if (collision.gameObject.CompareTag("Ladder"))
+        {
+            isClimbing = true;
+        }
+    }
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.gameObject.CompareTag("Ladder"))
+        {
+            isClimbing = false;
+        }
+    }
+    // Hàm mới để xử lý việc leo thang
+    private void Climb()
+    {
+        if (!isClimbing)
+            return;
+
+        float verticalInput = Input.GetAxis("Vertical");
+
+        // Di chuyển lên hoặc xuống thang
+        transform.Translate(new Vector3(0, verticalInput * moveSpeed * Time.deltaTime, 0));
+
+        // Cập nhật animation nếu cần
+        // Ví dụ: _animator.SetBool("isClimbing", verticalInput != 0);
     }
 
 }
