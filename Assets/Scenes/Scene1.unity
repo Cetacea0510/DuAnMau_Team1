@@ -250,7 +250,7 @@ Transform:
   m_GameObject: {fileID: 489510974}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -5.1906934, y: -13.120962, z: -10.019358}
+  m_LocalPosition: {x: -5.0406938, y: -13.160961, z: -10.019358}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -383,7 +383,7 @@ Transform:
   m_GameObject: {fileID: 519420028}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -4.8630257, y: 3.6736398, z: -10}
+  m_LocalPosition: {x: -4.713026, y: 3.6336398, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -591,7 +591,7 @@ GameObject:
   - component: {fileID: 740419024}
   - component: {fileID: 740419023}
   - component: {fileID: 740419022}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Tilemap1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -651,8 +651,8 @@ TilemapRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: 1984737117
+  m_SortingLayer: 1
   m_SortingOrder: 1
   m_ChunkSize: {x: 32, y: 32, z: 32}
   m_ChunkCullingBounds: {x: 0.03333336, y: 0.03333336, z: 0}
@@ -9135,7 +9135,7 @@ GameObject:
   - component: {fileID: 805269799}
   - component: {fileID: 805269801}
   - component: {fileID: 805269800}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Tilemap2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9195,8 +9195,8 @@ TilemapRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -1736844747
+  m_SortingLayer: 4
   m_SortingOrder: 2
   m_ChunkSize: {x: 32, y: 32, z: 32}
   m_ChunkCullingBounds: {x: 0.03333336, y: 0.03333336, z: 0}
@@ -9896,7 +9896,7 @@ GameObject:
   - component: {fileID: 1205281054}
   - component: {fileID: 1205281057}
   - component: {fileID: 1205281056}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Player
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9912,7 +9912,7 @@ Transform:
   m_GameObject: {fileID: 1205281052}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -21.51, y: 1.68, z: 0.004048472}
+  m_LocalPosition: {x: -21.36, y: 1.64, z: 0.004048472}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -9971,8 +9971,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -1736844747
+  m_SortingLayer: 4
   m_SortingOrder: 1
   m_Sprite: {fileID: -2025350577, guid: 9129c3857f9b2624db98e71b88250de3, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -10000,7 +10000,7 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 1
+  m_GravityScale: 5
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
@@ -10058,7 +10058,7 @@ GameObject:
   - component: {fileID: 1278705570}
   - component: {fileID: 1278705572}
   - component: {fileID: 1278705571}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Tilemap0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -10118,8 +10118,8 @@ TilemapRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: 1984737117
+  m_SortingLayer: 1
   m_SortingOrder: 0
   m_ChunkSize: {x: 32, y: 32, z: 32}
   m_ChunkCullingBounds: {x: 0.03333336, y: 0.03333336, z: 0}
@@ -31468,7 +31468,7 @@ GameObject:
   - component: {fileID: 1341041985}
   - component: {fileID: 1341041987}
   - component: {fileID: 1341041986}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Tilemap3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -31528,8 +31528,8 @@ TilemapRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -1736844747
+  m_SortingLayer: 4
   m_SortingOrder: 3
   m_ChunkSize: {x: 32, y: 32, z: 32}
   m_ChunkCullingBounds: {x: 0.03333336, y: 0.03333336, z: 0}
