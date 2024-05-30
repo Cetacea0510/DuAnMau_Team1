@@ -45,6 +45,12 @@ TagManager:
   - name: Tilemap
     uniqueID: 1984737117
     locked: 0
+  - name: Silver
+    uniqueID: 3020107007
+    locked: 0
+  - name: Gold
+    uniqueID: 3985570241
+    locked: 0
   - name: Player
     uniqueID: 2558122549
     locked: 0

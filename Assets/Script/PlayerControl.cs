@@ -32,6 +32,7 @@ public class PlayerControl : MonoBehaviour
     {
         _rigidbody2D = GetComponent<Rigidbody2D>();
         _capsuleCollider2D = GetComponent<CapsuleCollider2D>();
+        _animator = GetComponent<Animator>();
     }
 
     // Update is called once per frame
