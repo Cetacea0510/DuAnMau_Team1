@@ -59,6 +59,10 @@ public class PlayerControl : MonoBehaviour
     private void Jump()
     {
         var check = _capsuleCollider2D.IsTouchingLayers(LayerMask.GetMask("Platform"));
+        if (check == false)
+        {
+            return;
+        }
         var verticalInput = Input.GetAxis("Jump");
         if (Input.GetKeyDown(KeyCode.Space))
         {
