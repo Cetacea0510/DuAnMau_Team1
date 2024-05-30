@@ -100,15 +100,26 @@ public class PlayerControl : MonoBehaviour
     private void Climb()
     {
         if (!isClimbing)
+        {
+            _animator.SetBool("isClimbing", false);
             return;
+        }
 
         float verticalInput = Input.GetAxis("Vertical");
 
         // Di chuyển lên hoặc xuống thang
         transform.Translate(new Vector3(0, verticalInput * moveSpeed * Time.deltaTime, 0));
 
-        // Cập nhật animation nếu cần
-        // Ví dụ: _animator.SetBool("isClimbing", verticalInput != 0);
+        // Cập nhật animation
+        if (verticalInput != 0)
+        {
+            _animator.SetBool("isClimbing", true);
+            _animator.SetFloat("climbSpeed", verticalInput); // Set speed của animation leo thang
+        }
+        else
+        {
+            _animator.SetBool("isClimbing", false);
+        }
     }
 
 }
