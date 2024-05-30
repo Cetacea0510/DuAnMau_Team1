@@ -58,7 +58,7 @@ public class PlayerControl : MonoBehaviour
     }
     private void Jump()
     {
-        var check = _capsuleCollider2D.IsTouchingLayers(LayerMask.GetMask("Platform"));
+        var check = _capsuleCollider2D.IsTouchingLayers(LayerMask.GetMask("Tilemap"));
         if (check == false)
         {
             return;
