@@ -30,18 +30,44 @@ public class PlayerControl : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-
+        _rigidbody2D = GetComponent<Rigidbody2D>();
+        _capsuleCollider2D = GetComponent<CapsuleCollider2D>();
     }
 
     // Update is called once per frame
     void Update()
     {
         Move();  
+        Jump();
     }
     private void Move()
     {
         //left, right, a,d 
         var horizontalInput = Input.GetAxis("Horizontal");
-        transform.localPosition += new Vector3(horizontalInput, 0, 0);
+        transform.localPosition += new Vector3(horizontalInput * moveSpeed * Time.deltaTime, 0, 0);
+
+        if (horizontalInput > 0)
+        {
+            _isMovingRight = true;
+        }
+        else if (horizontalInput < 0)
+        {
+            _isMovingRight = false;
+        }
+        transform.localScale = _isMovingRight ? new Vector3(1f, 1f, 1f) : new Vector3(-1f, 1f, 1f);
     }
+    private void Jump()
+    {
+        var check = _capsuleCollider2D.IsTouchingLayers(LayerMask.GetMask("Platform"));
+        if (check == false)
+        {
+            return;
+        }
+        var verticalInput = Input.GetAxis("Jump");
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            _rigidbody2D.AddForce(Vector2.up * _jumpForce, ForceMode2D.Impulse);
+        }
+    }
+
 }
