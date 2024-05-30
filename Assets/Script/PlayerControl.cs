@@ -4,13 +4,8 @@ using UnityEngine;
 
 public class PlayerControl : MonoBehaviour
 {
-    // vận tốc chuyển động 
-    // public, private, protected, internal, protected internal
     [SerializeField]
-    private float moveSpeed = 5f; // 5m/s
-                                  // Start is called before the first frame update
-                                  // hàm chạy 1 lần duy nhất khi game bắt đầu
-                                  // dùng để khởi tạo giá trị
+    private float moveSpeed = 5f; 
 
     // biến kiểm tra hướng di chuyển
     [SerializeField]
@@ -18,16 +13,10 @@ public class PlayerControl : MonoBehaviour
 
     // tham chiếu đến rigidbody2D
     private Rigidbody2D _rigidbody2D;
-    // giá trị của lực nhảy
-    [SerializeField]
-    private float _jumpForce = 20f;
 
     // tham chiếu đến collider2D
     private CapsuleCollider2D _capsuleCollider2D;
 
-    //tham chieu den animator
-    private Animator _animator;
-    // Start is called before the first frame update
     void Start()
     {
         _rigidbody2D = GetComponent<Rigidbody2D>();
@@ -41,15 +30,9 @@ public class PlayerControl : MonoBehaviour
     }
     private void Move()
     {
-        // left, right, a, d
         var horizontalInput = Input.GetAxis("Horizontal");
-        // 0: không nhấn, âm: trái, dương: phải
-        // điều khiển phải trái
-        // x=1.5 ----> x=1.5+1=2.5
         transform.localPosition += new Vector3(horizontalInput, 0, 0)
             * moveSpeed * Time.deltaTime;
-        // localPosition: vị trí tương đối so với cha
-        // position: vị trí tuyệt đối so với thế giới
         if (horizontalInput > 0)
         {
             _isMovingRight = true;
