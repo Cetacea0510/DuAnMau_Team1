@@ -1,6 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerControl : MonoBehaviour
 {
@@ -31,6 +33,15 @@ public class PlayerControl : MonoBehaviour
 
     //tham chieu den animator
     private Animator _animator;
+
+    //tham chiếu đên TMP để hiển thị điểm
+    [SerializeField]
+    private TextMeshProUGUI _scoreText;
+    private static int _score = 0;
+
+    private static int _lives = 3;
+    [SerializeField]
+    private TextMeshProUGUI _livesText;
     // Start is called before the first frame update
     void Start()
     {
@@ -38,6 +49,9 @@ public class PlayerControl : MonoBehaviour
         _rigidbody2D = GetComponent<Rigidbody2D>();
         _capsuleCollider2D = GetComponent<CapsuleCollider2D>();
         _animator = GetComponent<Animator>();
+        //hiển thị điểm
+        _scoreText.text = _score.ToString();
+        _livesText.text = _lives.ToString();
     }
 
     // Update is called once per frame
@@ -85,23 +99,51 @@ public class PlayerControl : MonoBehaviour
             _rigidbody2D.AddForce(Vector2.up * _jumpForce, ForceMode2D.Impulse);
         }
     }
-    private void OnTriggerStay2D(Collider2D collision)
+    private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.CompareTag("Ladder"))
         {
+            _rigidbody2D.gravityScale = 0;
             isClimbing = true;
             rb.gravityScale = 0f;
         }
-    }
-    private void OnTriggerExit2D(Collider2D collision)
-    {
-        if (collision.gameObject.CompareTag("Ladder"))
+        else
         {
             isClimbing = false;
             rb.gravityScale = 1f;
 
         }
+        //nếu chạm với xu
+        if (collision.gameObject.CompareTag("Coin"))
+        {
+            //biến mất xu
+            Destroy(collision.gameObject);
+            //tăng điểm
+            _score += collision.gameObject.GetComponent<Coin>().coinValue;
+            //hiển thị điểm
+            _scoreText.text = _score.ToString();
+
+        }
+        else if (collision.gameObject.CompareTag("Enemy"))
+        {
+            //nếu va chạm với quái
+            _lives -= 1;
+
+            if (_lives > 0)
+            {
+                //reload game tại màn chơi hiện tại 
+                SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+                _livesText.text = _lives.ToString();
+            }
+            else
+            {
+                //dừng game
+                Time.timeScale = 0;
+
+            }
+        }
     }
+    
     // Hàm mới để xử lý việc leo thang
     private void Climb()
     {
@@ -127,5 +169,4 @@ public class PlayerControl : MonoBehaviour
             _animator.SetBool("isClimbing", false);
         }
     }
-
-}
+    }
