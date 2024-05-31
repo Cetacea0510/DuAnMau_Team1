@@ -6,52 +6,27 @@ using UnityEngine.SceneManagement;
 
 public class PlayerControl : MonoBehaviour
 {
-    // vận tốc chuyển động 
-    // public, private, protected, internal, protected internal
-    [SerializeField]
-    private float moveSpeed = 5f; // 5m/s
-                                  // Start is called before the first frame update
-                                  // hàm chạy 1 lần duy nhất khi game bắt đầu
-                                  // dùng để khởi tạo giá trị
-
-    // biến kiểm tra hướng di chuyển
-    // Biến kiểm tra xem nhân vật có đang leo thang hay không
+    [SerializeField] private float moveSpeed = 5f;
     private bool isClimbing;
-    [SerializeField]
-    private bool _isMovingRight = true;
-
-    // tham chiếu đến rigidbody2D
+    [SerializeField] private bool _isMovingRight = true;
     private Rigidbody2D _rigidbody2D;
-    // giá trị của lực nhảy
-    [SerializeField]
-    private float _jumpForce = 20f;
-
-    // tham chiếu đến collider2D
+    [SerializeField] private float _jumpForce = 20f;
     private CapsuleCollider2D _capsuleCollider2D;
-
-    //tham chieu den animator
     private Animator _animator;
-
-    //tham chiếu đên TMP để hiển thị điểm
-    [SerializeField]
-    private TextMeshProUGUI _scoreText;
+    [SerializeField] private TextMeshProUGUI _scoreText;
     private static int _score = 0;
-
     private static int _lives = 3;
-    [SerializeField]
-    private TextMeshProUGUI _livesText;
-    // Start is called before the first frame update
+    [SerializeField] private TextMeshProUGUI _livesText;
+
     void Start()
     {
         _rigidbody2D = GetComponent<Rigidbody2D>();
         _capsuleCollider2D = GetComponent<CapsuleCollider2D>();
         _animator = GetComponent<Animator>();
-        //hiển thị điểm
         _scoreText.text = _score.ToString();
         _livesText.text = _lives.ToString();
     }
 
-    // Update is called once per frame
     void Update()
     {
         Move();
@@ -61,31 +36,29 @@ public class PlayerControl : MonoBehaviour
             Climb();
         }
     }
+
     private void Move()
     {
-        //left, right, a,d 
         var horizontalInput = Input.GetAxis("Horizontal");
         transform.localPosition += new Vector3(horizontalInput * moveSpeed * Time.deltaTime, 0, 0);
 
         if (horizontalInput > 0)
         {
-            //qua phải 
             _isMovingRight = true;
             _animator.SetBool("isRunning", true);
         }
         else if (horizontalInput < 0)
         {
-            //qua trái
             _isMovingRight = false;
             _animator.SetBool("isRunning", true);
         }
         else
         {
-            //đứng yên
             _animator.SetBool("isRunning", false);
         }
         transform.localScale = _isMovingRight ? new Vector3(1f, 1f, 1f) : new Vector3(-1f, 1f, 1f);
     }
+
     private void Jump()
     {
         var check = _capsuleCollider2D.IsTouchingLayers(LayerMask.GetMask("Tilemap"));
@@ -99,6 +72,7 @@ public class PlayerControl : MonoBehaviour
             _rigidbody2D.AddForce(Vector2.up * _jumpForce, ForceMode2D.Impulse);
         }
     }
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.CompareTag("Ladder"))
@@ -110,38 +84,22 @@ public class PlayerControl : MonoBehaviour
         {
             isClimbing = false;
         }
-        //nếu chạm với xu
+
         if (collision.gameObject.CompareTag("Coin"))
         {
-            //biến mất xu
-            Destroy(collision.gameObject);
-            //tăng điểm
-            _score += collision.gameObject.GetComponent<Coin>().coinValue;
-            //hiển thị điểm
-            _scoreText.text = _score.ToString();
-
+            HandleCoinCollision(collision.gameObject);
         }
         else if (collision.gameObject.CompareTag("Enemy"))
         {
-            //nếu va chạm với quái
-            _lives -= 1;
-
-            if (_lives > 0)
-            {
-                //reload game tại màn chơi hiện tại 
-                SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
-                _livesText.text = _lives.ToString();
-            }
-            else
-            {
-                //dừng game
-                Time.timeScale = 0;
-
-            }
+            HandleEnemyCollision();
+        }
+        else
+        {
+            // Xử lý va chạm với mặt đất hoặc các đối tượng khác ở đây
+            _rigidbody2D.gravityScale = 1f;
         }
     }
 
-    // Hàm mới để xử lý việc leo thang
     private void Climb()
     {
         if (!isClimbing)
@@ -151,19 +109,37 @@ public class PlayerControl : MonoBehaviour
         }
 
         float verticalInput = Input.GetAxis("Vertical");
-
-        // Di chuyển lên hoặc xuống thang
         transform.Translate(new Vector3(0, verticalInput * moveSpeed * Time.deltaTime, 0));
 
-        // Cập nhật animation
         if (verticalInput != 0)
         {
             _animator.SetBool("isClimbing", true);
-            _animator.SetFloat("climbSpeed", verticalInput); // Set speed của animation leo thang
+            _animator.SetFloat("climbSpeed", verticalInput);
         }
         else
         {
             _animator.SetBool("isClimbing", false);
+        }
+    }
+
+    private void HandleCoinCollision(GameObject coin)
+    {
+        Destroy(coin);
+        _score += coin.GetComponent<Coin>().coinValue;
+        _scoreText.text = _score.ToString();
+    }
+
+    private void HandleEnemyCollision()
+    {
+        _lives -= 1;
+        if (_lives > 0)
+        {
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+            _livesText.text = _lives.ToString();
+        }
+        else
+        {
+            Time.timeScale = 0;
         }
     }
 }
