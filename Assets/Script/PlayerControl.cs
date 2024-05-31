@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerControl : MonoBehaviour
 {
@@ -35,12 +36,19 @@ public class PlayerControl : MonoBehaviour
     [SerializeField]
     private TextMeshProUGUI _scoreText;
     private static int _score = 0;
+
+    private static int _lives = 3;
+    [SerializeField]
+    private TextMeshProUGUI _livesText;
     // Start is called before the first frame update
     void Start()
     {
         _rigidbody2D = GetComponent<Rigidbody2D>();
         _capsuleCollider2D = GetComponent<CapsuleCollider2D>();
         _animator = GetComponent<Animator>();
+        //hiển thị điểm
+        _scoreText.text = _score.ToString();
+        _livesText.text = _lives.ToString();
     }
 
     // Update is called once per frame
@@ -88,7 +96,7 @@ public class PlayerControl : MonoBehaviour
             _rigidbody2D.AddForce(Vector2.up * _jumpForce, ForceMode2D.Impulse);
         }
     }
-    private void OnTriggerEnter2D (Collider2D collision)
+    private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.CompareTag("Ladder"))
         {
@@ -109,6 +117,24 @@ public class PlayerControl : MonoBehaviour
             //hiển thị điểm
             _scoreText.text = _score.ToString();
 
+        }
+        else if (collision.gameObject.CompareTag("Enemy"))
+        {
+            //nếu va chạm với quái
+            _lives -= 1;
+
+            if (_lives > 0)
+            {
+                //reload game tại màn chơi hiện tại 
+                SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+                _livesText.text = _lives.ToString();
+            }
+            else
+            {
+                //dừng game
+                Time.timeScale = 0;
+
+            }
         }
     }
     
