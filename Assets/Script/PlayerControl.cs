@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class PlayerControl : MonoBehaviour
@@ -29,6 +30,11 @@ public class PlayerControl : MonoBehaviour
 
     //tham chieu den animator
     private Animator _animator;
+
+    //tham chiếu đên TMP để hiển thị điểm
+    [SerializeField]
+    private TextMeshProUGUI _scoreText;
+    private static int _score = 0;
     // Start is called before the first frame update
     void Start()
     {
@@ -82,20 +88,30 @@ public class PlayerControl : MonoBehaviour
             _rigidbody2D.AddForce(Vector2.up * _jumpForce, ForceMode2D.Impulse);
         }
     }
-    private void OnTriggerStay2D(Collider2D collision)
+    private void OnTriggerEnter2D (Collider2D collision)
     {
         if (collision.gameObject.CompareTag("Ladder"))
         {
+            _rigidbody2D.gravityScale = 0;
             isClimbing = true;
         }
-    }
-    private void OnTriggerExit2D(Collider2D collision)
-    {
-        if (collision.gameObject.CompareTag("Ladder"))
+        else
         {
             isClimbing = false;
         }
+        //nếu chạm với xu
+        if (collision.gameObject.CompareTag("Coin"))
+        {
+            //biến mất xu
+            Destroy(collision.gameObject);
+            //tăng điểm
+            _score += collision.gameObject.GetComponent<Coin>().coinValue;
+            //hiển thị điểm
+            _scoreText.text = _score.ToString();
+
+        }
     }
+    
     // Hàm mới để xử lý việc leo thang
     private void Climb()
     {
@@ -121,5 +137,4 @@ public class PlayerControl : MonoBehaviour
             _animator.SetBool("isClimbing", false);
         }
     }
-
-}
+    }
