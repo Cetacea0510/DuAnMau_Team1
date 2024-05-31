@@ -56,7 +56,10 @@ public class PlayerControl : MonoBehaviour
     {
         Move();
         Jump();
-        Climb();
+        if (!isClimbing)
+        {
+            Climb();
+        }
     }
     private void Move()
     {
