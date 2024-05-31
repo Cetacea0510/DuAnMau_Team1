@@ -14,7 +14,9 @@ public class PlayerControl : MonoBehaviour
 
     // biến kiểm tra hướng di chuyển
     // Biến kiểm tra xem nhân vật có đang leo thang hay không
-    private bool isClimbing;
+    public float climbSpeed = 3f;
+    private bool isClimbing = false;
+    private Rigidbody2D rb;
     [SerializeField]
     private bool _isMovingRight = true;
 
@@ -32,6 +34,7 @@ public class PlayerControl : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        rb = GetComponent<Rigidbody2D>();
         _rigidbody2D = GetComponent<Rigidbody2D>();
         _capsuleCollider2D = GetComponent<CapsuleCollider2D>();
         _animator = GetComponent<Animator>();
@@ -87,6 +90,7 @@ public class PlayerControl : MonoBehaviour
         if (collision.gameObject.CompareTag("Ladder"))
         {
             isClimbing = true;
+            rb.gravityScale = 0f;
         }
     }
     private void OnTriggerExit2D(Collider2D collision)
@@ -94,6 +98,8 @@ public class PlayerControl : MonoBehaviour
         if (collision.gameObject.CompareTag("Ladder"))
         {
             isClimbing = false;
+            rb.gravityScale = 1f;
+
         }
     }
     // Hàm mới để xử lý việc leo thang
