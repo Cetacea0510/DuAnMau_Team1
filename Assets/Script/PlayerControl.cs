@@ -75,9 +75,9 @@ public class PlayerControl : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.CompareTag("Ladder"))
+        if (collision.gameObject.CompareTag("Ladder")) // Kiểm tra xem collision có phải là thang không
         {
-            _rigidbody2D.gravityScale = 0;
+            _rigidbody2D.gravityScale = 0; // Ngừng gravity khi tiếp xúc với thang
             isClimbing = true;
         }
         else
@@ -115,12 +115,15 @@ public class PlayerControl : MonoBehaviour
         }
 
         float verticalInput = Input.GetAxis("Vertical");
+
+        // Di chuyển nhân vật theo trục y dựa trên giá trị verticalInput
         transform.Translate(new Vector3(0, verticalInput * moveSpeed * Time.deltaTime, 0));
 
+        // Thiết lập animation cho việc leo cầu thang
         if (verticalInput != 0)
         {
             _animator.SetBool("isClimbing", true);
-            _animator.SetFloat("climbSpeed", verticalInput);
+            _animator.SetFloat("climbSpeed", Mathf.Abs(verticalInput));
         }
         else
         {
