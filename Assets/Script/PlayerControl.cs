@@ -17,6 +17,9 @@ public class PlayerControl : MonoBehaviour
     private static int _score = 0;
     private static int _lives = 3;
     [SerializeField] private TextMeshProUGUI _livesText;
+    [SerializeField] private GameObject bulletPrefab;
+    [SerializeField] private Transform firePoint;
+    [SerializeField] private float bulletSpeed = 10f;
 
     void Start()
     {
@@ -34,6 +37,11 @@ public class PlayerControl : MonoBehaviour
         if (!isClimbing)
         {
             Climb();
+        }
+
+        if (Input.GetKeyDown(KeyCode.Space)) // Điều kiện để bắn, bạn có thể thay đổi phím bắn theo ý của mình
+        {
+            Shoot();
         }
     }
 
@@ -164,5 +172,21 @@ public class PlayerControl : MonoBehaviour
         {
             Time.timeScale = 0;
         }
+    }
+
+    private void Shoot()
+    {
+        GameObject bullet = Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
+        Rigidbody2D rb = bullet.GetComponent<Rigidbody2D>();
+        if (_isMovingRight)
+        {
+            rb.velocity = transform.right * bulletSpeed;
+        }
+        else
+        {
+            rb.velocity = -transform.right * bulletSpeed;
+        }
+        // Đảm bảo đạn sẽ không va chạm với nhân vật bắn
+        Physics2D.IgnoreCollision(bullet.GetComponent<Collider2D>(), GetComponent<Collider2D>());
     }
 }
