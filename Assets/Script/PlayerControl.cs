@@ -98,6 +98,11 @@ public class PlayerControl : MonoBehaviour
             // Xử lý va chạm với mặt đất hoặc các đối tượng khác ở đây
             _rigidbody2D.gravityScale = 1f;
         }
+        // Xử lý va chạm với chướng ngại vật mất máu ở đây
+        if (collision.gameObject.CompareTag("DamageObstacle"))
+        {
+            HandleDamageObstacleCollision();
+        }
     }
 
     private void Climb()
