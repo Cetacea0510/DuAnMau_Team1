@@ -98,6 +98,7 @@ public class PlayerControl : MonoBehaviour
             // Xử lý va chạm với mặt đất hoặc các đối tượng khác ở đây
             _rigidbody2D.gravityScale = 1f;
         }
+
         // Xử lý va chạm với chướng ngại vật mất máu ở đây
         if (collision.gameObject.CompareTag("DamageObstacle"))
         {
@@ -135,6 +136,20 @@ public class PlayerControl : MonoBehaviour
     }
 
     private void HandleEnemyCollision()
+    {
+        _lives -= 1;
+        if (_lives > 0)
+        {
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+            _livesText.text = _lives.ToString();
+        }
+        else
+        {
+            Time.timeScale = 0;
+        }
+    }
+
+    private void HandleDamageObstacleCollision()
     {
         _lives -= 1;
         if (_lives > 0)
