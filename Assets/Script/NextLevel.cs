@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.SearchService;
 using UnityEngine;
 
 public class NextLevel : MonoBehaviour
@@ -8,7 +9,7 @@ public class NextLevel : MonoBehaviour
     {
         if (collision.CompareTag("Player"))
         {
-
+            GameManager.instance.NextMan();
         }
     }
 }
