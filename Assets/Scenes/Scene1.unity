@@ -9423,7 +9423,7 @@ GameObject:
   - component: {fileID: 805269802}
   - component: {fileID: 805269804}
   - component: {fileID: 805269803}
-  m_Layer: 6
+  m_Layer: 8
   m_Name: Tilemap2
   m_TagString: Ladder
   m_Icon: {fileID: 0}
@@ -10423,6 +10423,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1205281053}
   - component: {fileID: 1205281055}
+  - component: {fileID: 1205281059}
   - component: {fileID: 1205281054}
   - component: {fileID: 1205281057}
   - component: {fileID: 1205281056}
@@ -10456,7 +10457,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1205281052}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2ae64c9dee9fe55448332eab410bf4c5, type: 3}
   m_Name: 
@@ -10466,6 +10467,9 @@ MonoBehaviour:
   _jumpForce: 10
   _scoreText: {fileID: 1190443003}
   _livesText: {fileID: 483258734}
+  bulletPrefab: {fileID: 0}
+  firePoint: {fileID: 0}
+  bulletSpeed: 10
 --- !u!212 &1205281055
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -10601,6 +10605,26 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &1205281059
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1205281052}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2e966abb799195848adff8b99b4af175, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moveSpeed: 5
+  _isMovingRight: 1
+  _jumpForce: 20
+  _scoreText: {fileID: 1190443003}
+  _livesText: {fileID: 483258734}
+  bulletPrefab: {fileID: 0}
+  firePoint: {fileID: 0}
+  bulletSpeed: 10
 --- !u!1 &1278705569
 GameObject:
   m_ObjectHideFlags: 0
