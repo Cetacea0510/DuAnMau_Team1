@@ -70,7 +70,11 @@ public class PlayerControlTA : MonoBehaviour
     private void Jump()
     {
         var check = _capsuleCollider2D.IsTouchingLayers(LayerMask.GetMask("Tilemap"));
+<<<<<<< HEAD
         _animator.SetBool("isJump", check);  // Update the animator with grounded status
+=======
+        _animator.SetBool("isGrounded", check);  // Update the animator with grounded status
+>>>>>>> minhtan
 
         if (!check)
         {
