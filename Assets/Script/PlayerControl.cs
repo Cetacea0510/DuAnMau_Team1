@@ -78,6 +78,7 @@ public class PlayerControl : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Space))
         {
             _rigidbody2D.AddForce(Vector2.up * _jumpForce, ForceMode2D.Impulse);
+            _animator.SetTrigger("Jump"); // Kích hoạt animation nhảy
         }
     }
 
