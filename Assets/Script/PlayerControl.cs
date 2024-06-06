@@ -1,6 +1,9 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
+
 
 public class PlayerControl : MonoBehaviour
 {
@@ -27,11 +30,29 @@ public class PlayerControl : MonoBehaviour
 
     //tham chieu den animator
     private Animator _animator;
+
+    //tham chiếu đên TMP để hiển thị điểm
+    [SerializeField]
+    private TextMeshProUGUI _scoreText;
+    private static int _score = 0;
+
+    //tham chiếu tới panel gameover 
+    [SerializeField]
+    private GameObject _gameOverPanel;
+    private static int _lives = 3;
+    [SerializeField]
+    private TextMeshProUGUI _livesText;
+
+    [SerializeField]
+    private static float _health;
+    [SerializeField] private Slider _healthSlider;
     // Start is called before the first frame update
     void Start()
     {
         _rigidbody2D = GetComponent<Rigidbody2D>();
         _capsuleCollider2D = GetComponent<CapsuleCollider2D>();
+        _health = 100f;
+        _healthSlider.maxValue = _health;
     }
 
     // Update is called once per frame
@@ -62,5 +83,10 @@ public class PlayerControl : MonoBehaviour
         transform.localScale = _isMovingRight ?
             new Vector2(1.406425f, 1.172423f)
             : new Vector2(-1.406425f, 1.172423f);
+    }
+    //lấy điểm số 
+    public int GetScore()
+    {
+        return _score;
     }
 }
